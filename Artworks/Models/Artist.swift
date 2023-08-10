@@ -12,4 +12,11 @@ class Artist: Codable {
     var name: String
     var country: String
     var period: String
+
+    init(id: Int, name: String, country: String, period: String) {
+        self.id = id
+        self.name = name
+        self.country = country
+        self.period = period
+    }
 }

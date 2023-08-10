@@ -16,4 +16,15 @@ class Artwork: Codable {
     var city: String
     var country: String
     var continent: String
+
+    init(id: Int, title: String, image: String, artistId: Int, location: String, city: String, country: String, continent: String) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.artistId = artistId
+        self.location = location
+        self.city = city
+        self.country = country
+        self.continent = continent
+    }
 }
