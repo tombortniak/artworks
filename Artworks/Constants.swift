@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     struct API {
-        static let artistsURL = "http://srv21.mikr.us:30123/api/v1/artists"
-        static let artworksURL = "http://srv21.mikr.us:30123/api/v1/artworks"
+        static let artistsURL = URL(string: "http://srv21.mikr.us:30123/api/v1/artists")
+        static let artworksURL = URL(string: "http://srv21.mikr.us:30123/api/v1/artworks")
     }
 }
