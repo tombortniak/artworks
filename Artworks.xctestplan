@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "4E547CD9-99B1-4DCA-A8FD-DE82CC869353",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Artworks.xcodeproj",
+      "identifier" : "6506D4AB2A80425F0016E559",
+      "name" : "Artworks"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Artworks.xcodeproj",
+        "identifier" : "65CA77E92A90EA48005FBB05",
+        "name" : "ArtworksTests"
+      }
+    }
+  ],
+  "version" : 1
+}

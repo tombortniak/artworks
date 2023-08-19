@@ -36,6 +36,7 @@
 		6506D4B32A8042600016E559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6506D4B62A8042600016E559 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		652E19472A8EC45D008CC5AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		654336452A9161AB006CF3BF /* Artworks.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Artworks.xctestplan; sourceTree = "<group>"; };
 		65A7B9CE2A85814800B7A0F6 /* ArtworksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksAPI.swift; sourceTree = "<group>"; };
 		65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksAPITests.swift; sourceTree = "<group>"; };
 		65CA77EA2A90EA48005FBB05 /* ArtworksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtworksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +107,7 @@
 		65CA77EB2A90EA48005FBB05 /* ArtworksTests */ = {
 			isa = PBXGroup;
 			children = (
+				654336452A9161AB006CF3BF /* Artworks.xctestplan */,
 				65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */,
 			);
 			path = ArtworksTests;
