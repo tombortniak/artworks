@@ -15,8 +15,6 @@ jobs:
         run: xcodebuild clean build test -project Artworks.xcodeproj -scheme Artworks -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' -enableCodeCoverage YES -derivedDataPath Build/ CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       - name: Convert test coverage to SonarQube format
         run: bash ./.github/scripts/xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ >Coverage.xml
-      - name: Fix paths in coverage report
-        run: sed -i 's#/Users/runner/work/artworks/artworks#/github/workspace#g' Coverage.xml
       - name: Upload test coverage
         uses: actions/upload-artifact@v3
         with:
@@ -35,6 +33,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: test-coverage
+      - name: Fix paths in coverage report
+        run: sed -i 's#/Users/runner/work/artworks/artworks#/github/workspace#g' Coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
