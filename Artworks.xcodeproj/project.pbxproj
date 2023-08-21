@@ -148,6 +148,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65CA77F02A90EA48005FBB05 /* Build configuration list for PBXNativeTarget "ArtworksTests" */;
 			buildPhases = (
+				C750BB957ED6A8A4BB54FFAC /* Generate Mockingbird Mocks */,
 				65CA77E62A90EA48005FBB05 /* Sources */,
 				65CA77E72A90EA48005FBB05 /* Frameworks */,
 				65CA77E82A90EA48005FBB05 /* Resources */,
@@ -158,6 +159,8 @@
 				65CA77EF2A90EA48005FBB05 /* PBXTargetDependency */,
 			);
 			name = ArtworksTests;
+			packageProductDependencies = (
+			);
 			productName = ArtworksTests;
 			productReference = 65CA77EA2A90EA48005FBB05 /* ArtworksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -190,6 +193,8 @@
 				Base,
 			);
 			mainGroup = 6506D4A32A80425F0016E559;
+			packageReferences = (
+			);
 			productRefGroup = 6506D4AD2A80425F0016E559 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
