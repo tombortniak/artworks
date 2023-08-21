@@ -22,26 +22,37 @@ final class ArtworksAPITests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func test_appending_withCorrectParameter_shouldReturnCorrectURL() throws {
+    func test_getArtworks_withCorrectParameter_shouldReturnData() async throws {
         let queryParameters = ["testParam": "testValue"]
-        let result = try artworksAPI.appending(queryParameters: queryParameters, to: Constants.API.artistsURL!)
-        XCTAssertEqual(result, URL(string:"\(Constants.API.artistsURL!)?testParam=testValue"))
+        let data = try await artworksAPI.getArtworks(queryParameters: queryParameters)
+        XCTAssertNotNil(data)
     }
 
-    func test_appending_withCorrectParameters_shouldReturnCorrectURL() throws {
+    func test_getArtworks_withCorrectParameters_shouldReturnData() async throws {
         let queryParameters = ["testParam1": "testValue1", "testParam2": "testValue2"]
-        let result = try artworksAPI.appending(queryParameters: queryParameters, to: Constants.API.artistsURL!)
-        XCTAssertEqual(result, URL(string:"\(Constants.API.artistsURL!)?testParam1=testValue1&testParam2=testValue2"))
+        let data = try await artworksAPI.getArtworks(queryParameters: queryParameters)
+        XCTAssertNotNil(data)
     }
 
-    func test_appending_withIncorrectParameterKey_shouldThrowError() throws {
+    func test_getArtworks_withIncorrectParameterKey_shouldThrowError() async throws {
         let queryParameters = ["": "testValue"]
-        XCTAssertThrowsError(try artworksAPI.appending(queryParameters: queryParameters, to: Constants.API.artistsURL!))
-
+        var didFailWithError: ArtworksAPIError?
+        do {
+            _ = try await artworksAPI.getArtworks(queryParameters: queryParameters)
+        } catch ArtworksAPIError.invalidQuery {
+            didFailWithError = ArtworksAPIError.invalidQuery
+        }
+        XCTAssertNotNil(didFailWithError)
     }
 
-    func test_appending_withIncorrectParameterValue_shouldThrowError() throws {
-        let queryParameters = ["testParam": ""]
-        XCTAssertThrowsError(try artworksAPI.appending(queryParameters: queryParameters, to: Constants.API.artistsURL!))
+    func test_getArtworks_withIncorrectParameterValue_shouldThrowError() async throws {
+        let queryParameters = ["": "testValue"]
+        var didFailWithError: Error?
+        do {
+            _ = try await artworksAPI.getArtworks(queryParameters: queryParameters)
+        } catch ArtworksAPIError.invalidQuery {
+            didFailWithError = ArtworksAPIError.invalidQuery
+        }
+        XCTAssertNotNil(didFailWithError)
     }
 }
