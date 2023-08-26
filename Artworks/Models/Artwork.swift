@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artwork: Codable {
+struct Artwork: Codable, Identifiable {
     var id: Int
     var title: String
     var image: String
