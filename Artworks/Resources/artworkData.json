@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Mona Lisa",
+    "image": "mona_lisa",
+    "artist_id": 1,
+    "location": "Louvre",
+    "city": "Paris",
+    "country": "France",
+    "continent": "Europe"
+  },
+  {
+    "id": 2,
+    "title": "The Last Judgement",
+    "image": "the_last_judgement",
+    "artist_id": 2,
+    "location": "Sistine Chapel",
+    "city": "Vatican City",
+    "country": "Vatican City",
+    "continent": "Europe"
+  }
+]

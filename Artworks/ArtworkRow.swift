@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-let artworks: [Artwork] = [
-    Artwork(id: 1, title: "Mona Lisa", image: "mona_lisa", artistId: 1, location: "Louvre", city: "Paris", country: "France", continent: "Europe"),
-    Artwork(id: 2, title: "The Last Judgement", image: "the_last_judgement", artistId: 2, location: "Sistine Chapel", city: "Vatican City", country: "Vatican City", continent: "Europe")
-]
-
 struct ArtworkRow: View {
     var artwork: Artwork
 

@@ -17,6 +17,8 @@
 		65CA77F52A9104E2005FBB05 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA77F42A9104E2005FBB05 /* Errors.swift */; };
 		65E433622A9A13F100500519 /* ArtworkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E433612A9A13F100500519 /* ArtworkList.swift */; };
 		65E433642A9A149000500519 /* ArtworkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E433632A9A149000500519 /* ArtworkRow.swift */; };
+		65E433672A9A18E800500519 /* artworkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 65E433662A9A18E800500519 /* artworkData.json */; };
+		65E433692A9A192400500519 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E433682A9A192400500519 /* ModelData.swift */; };
 		65F2E60A2A856E31002830C8 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2E6092A856E31002830C8 /* Artwork.swift */; };
 		65F2E60C2A857A1B002830C8 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2E60B2A857A1B002830C8 /* Artist.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,8 @@
 		65CA77F42A9104E2005FBB05 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		65E433612A9A13F100500519 /* ArtworkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkList.swift; sourceTree = "<group>"; };
 		65E433632A9A149000500519 /* ArtworkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkRow.swift; sourceTree = "<group>"; };
+		65E433662A9A18E800500519 /* artworkData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = artworkData.json; sourceTree = "<group>"; };
+		65E433682A9A192400500519 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		65F2E6092A856E31002830C8 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		65F2E60B2A857A1B002830C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +95,7 @@
 			children = (
 				653357462A92357300511892 /* Info.plist */,
 				652E19472A8EC45D008CC5AF /* Constants.swift */,
+				65E433652A9A18C000500519 /* Resources */,
 				65CA77F42A9104E2005FBB05 /* Errors.swift */,
 				65A7B9CE2A85814800B7A0F6 /* ArtworksAPI.swift */,
 				65F2E6082A856E24002830C8 /* Models */,
@@ -121,11 +126,20 @@
 			path = ArtworksTests;
 			sourceTree = "<group>";
 		};
+		65E433652A9A18C000500519 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65E433662A9A18E800500519 /* artworkData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		65F2E6082A856E24002830C8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				65F2E6092A856E31002830C8 /* Artwork.swift */,
 				65F2E60B2A857A1B002830C8 /* Artist.swift */,
+				65E433682A9A192400500519 /* ModelData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 			files = (
 				6506D4B72A8042600016E559 /* Preview Assets.xcassets in Resources */,
 				6506D4B42A8042600016E559 /* Assets.xcassets in Resources */,
+				65E433672A9A18E800500519 /* artworkData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +256,7 @@
 				65E433642A9A149000500519 /* ArtworkRow.swift in Sources */,
 				65F2E60A2A856E31002830C8 /* Artwork.swift in Sources */,
 				65F2E60C2A857A1B002830C8 /* Artist.swift in Sources */,
+				65E433692A9A192400500519 /* ModelData.swift in Sources */,
 				652E19482A8EC45D008CC5AF /* Constants.swift in Sources */,
 				65CA77F52A9104E2005FBB05 /* Errors.swift in Sources */,
 			);
