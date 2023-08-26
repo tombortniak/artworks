@@ -26,7 +26,7 @@ class ArtworksAPI {
         }
     }
 
-    func appending(queryParameters: [String:String], to url: URL) throws -> URL {
+    private func appending(queryParameters: [String:String], to url: URL) throws -> URL {
         guard isQueryValid(with: queryParameters) else {
             throw ArtworksAPIError.invalidQuery
         }
@@ -35,7 +35,7 @@ class ArtworksAPI {
         return constructedURL.url!
     }
 
-    func getData<T: Decodable>(with queryParameters: [String:String], from url: URL) async throws -> [T] {
+    private func getData<T: Decodable>(with queryParameters: [String:String], from url: URL) async throws -> [T] {
         var endpointURL = url
         if !queryParameters.isEmpty {
             endpointURL = try appending(queryParameters: queryParameters, to: url)
