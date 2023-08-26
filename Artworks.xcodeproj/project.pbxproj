@@ -15,6 +15,8 @@
 		65A7B9CF2A85814800B7A0F6 /* ArtworksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A7B9CE2A85814800B7A0F6 /* ArtworksAPI.swift */; };
 		65CA77F32A90EA5F005FBB05 /* ArtworksAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */; };
 		65CA77F52A9104E2005FBB05 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA77F42A9104E2005FBB05 /* Errors.swift */; };
+		65E433622A9A13F100500519 /* ArtworkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E433612A9A13F100500519 /* ArtworkList.swift */; };
+		65E433642A9A149000500519 /* ArtworkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E433632A9A149000500519 /* ArtworkRow.swift */; };
 		65F2E60A2A856E31002830C8 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2E6092A856E31002830C8 /* Artwork.swift */; };
 		65F2E60C2A857A1B002830C8 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2E60B2A857A1B002830C8 /* Artist.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksAPITests.swift; sourceTree = "<group>"; };
 		65CA77EA2A90EA48005FBB05 /* ArtworksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtworksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CA77F42A9104E2005FBB05 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		65E433612A9A13F100500519 /* ArtworkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkList.swift; sourceTree = "<group>"; };
+		65E433632A9A149000500519 /* ArtworkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkRow.swift; sourceTree = "<group>"; };
 		65F2E6092A856E31002830C8 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		65F2E60B2A857A1B002830C8 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +95,8 @@
 				65A7B9CE2A85814800B7A0F6 /* ArtworksAPI.swift */,
 				65F2E6082A856E24002830C8 /* Models */,
 				6506D4AF2A80425F0016E559 /* ArtworksApp.swift */,
+				65E433632A9A149000500519 /* ArtworkRow.swift */,
+				65E433612A9A13F100500519 /* ArtworkList.swift */,
 				6506D4B12A80425F0016E559 /* ContentView.swift */,
 				6506D4B32A8042600016E559 /* Assets.xcassets */,
 				6506D4B52A8042600016E559 /* Preview Content */,
@@ -148,7 +154,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65CA77F02A90EA48005FBB05 /* Build configuration list for PBXNativeTarget "ArtworksTests" */;
 			buildPhases = (
-				C750BB957ED6A8A4BB54FFAC /* Generate Mockingbird Mocks */,
 				65CA77E62A90EA48005FBB05 /* Sources */,
 				65CA77E72A90EA48005FBB05 /* Frameworks */,
 				65CA77E82A90EA48005FBB05 /* Resources */,
@@ -231,7 +236,9 @@
 			files = (
 				6506D4B22A80425F0016E559 /* ContentView.swift in Sources */,
 				65A7B9CF2A85814800B7A0F6 /* ArtworksAPI.swift in Sources */,
+				65E433622A9A13F100500519 /* ArtworkList.swift in Sources */,
 				6506D4B02A80425F0016E559 /* ArtworksApp.swift in Sources */,
+				65E433642A9A149000500519 /* ArtworkRow.swift in Sources */,
 				65F2E60A2A856E31002830C8 /* Artwork.swift in Sources */,
 				65F2E60C2A857A1B002830C8 /* Artist.swift in Sources */,
 				652E19482A8EC45D008CC5AF /* Constants.swift in Sources */,
