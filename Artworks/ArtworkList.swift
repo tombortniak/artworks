@@ -15,8 +15,10 @@ struct ArtworkList: View {
     }
 }
 
+#if !TESTING
 struct ArtworkList_Previews: PreviewProvider {
     static var previews: some View {
         ArtworkList()
     }
 }
+#endif
