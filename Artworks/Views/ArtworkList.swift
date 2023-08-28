@@ -10,7 +10,7 @@ import SwiftUI
 struct ArtworkList: View {
     var body: some View {
         List(artworks, id: \.id) { artwork in
-            ArtworkRow(artwork: artwork)
+            ArtworkCard(artwork: artwork)
         }
     }
 }
