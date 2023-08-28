@@ -15,22 +15,27 @@ struct ArtworkCard: View {
             Image(artwork.image)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 150, height: 150, alignment: .top)
+                .frame(width: 120, height: 120, alignment: .top)
                 .clipped()
             Spacer()
-            VStack(spacing: 5) {
+            VStack(alignment: .center, spacing: 5) {
                 Text(artwork.title)
-                    .font(.title2)
+                    .font(.title3)
                     .bold()
                     .multilineTextAlignment(.center)
                 Text(artists[0].name)
             }
+            Spacer()
         }
-        .padding()
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 1)
-                .foregroundColor(.black)
+        .background(
+            Rectangle()
+                .fill(Color.white)
+                .shadow(
+                    color: Color.gray.opacity(0.7),
+                    radius: 5,
+                    x: 0,
+                    y: 0
+                )
         )
     }
 }

@@ -12,6 +12,7 @@ struct ArtworkList: View {
         List(artworks, id: \.id) { artwork in
             ArtworkCard(artwork: artwork)
         }
+        .listStyle(PlainListStyle())
     }
 }
 
