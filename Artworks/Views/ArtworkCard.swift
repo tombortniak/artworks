@@ -31,7 +31,7 @@ struct ArtworkCard: View {
             Rectangle()
                 .fill(Color.white)
                 .shadow(
-                    color: Color.gray.opacity(0.7),
+                    color: Color.gray.opacity(0.5),
                     radius: 5
                 )
         )
