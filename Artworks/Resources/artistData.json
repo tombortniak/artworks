@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Leonardo da Vinci",
+    "country": "Italy",
+    "period": "Renaissance"
+  },
+  {
+    "id": 2,
+    "name": "Michelangelo",
+    "country": "Italy",
+    "period": "Renaissance"
+  }
+]
