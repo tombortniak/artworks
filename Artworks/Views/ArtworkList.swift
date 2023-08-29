@@ -11,6 +11,7 @@ struct ArtworkList: View {
     var body: some View {
         List(artworks, id: \.id) { artwork in
             ArtworkCard(artwork: artwork)
+                .listRowSeparator(.hidden)
         }
         .listStyle(PlainListStyle())
     }
