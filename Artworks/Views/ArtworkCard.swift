@@ -32,9 +32,7 @@ struct ArtworkCard: View {
                 .fill(Color.white)
                 .shadow(
                     color: Color.gray.opacity(0.7),
-                    radius: 5,
-                    x: 0,
-                    y: 0
+                    radius: 5
                 )
         )
     }
