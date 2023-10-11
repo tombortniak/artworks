@@ -7,7 +7,13 @@
     "location": "Louvre",
     "city": "Paris",
     "country": "France",
-    "continent": "Europe"
+    "continent": "Europe",
+    "form": "painting",
+    "year_started": 1503,
+    "year_completed": 1505,
+    "description_link": "description_link",
+    "height": 200.0,
+    "width": 322.0
   },
   {
     "id": 2,
@@ -17,6 +23,12 @@
     "location": "Sistine Chapel",
     "city": "Vatican City",
     "country": "Vatican City",
-    "continent": "Europe"
+    "continent": "Europe",
+    "form": "painting",
+    "year_started": 1312,
+    "year_completed": 1344,
+    "description_link": "description_link",
+    "height": 400.0,
+    "width": 560.0
   }
 ]
