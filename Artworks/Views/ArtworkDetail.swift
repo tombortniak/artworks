@@ -47,8 +47,10 @@ struct ArtworkDetail: View {
     }
 }
 
+#if !TESTING
 struct ArtworkDetail_Previews: PreviewProvider {
     static var previews: some View {
         ArtworkDetail(artwork: artworks[0])
     }
 }
+#endif
