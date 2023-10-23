@@ -11,7 +11,10 @@
 		6506D4B42A8042600016E559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6506D4B32A8042600016E559 /* Assets.xcassets */; };
 		6506D4B72A8042600016E559 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6506D4B62A8042600016E559 /* Preview Assets.xcassets */; };
 		652E19482A8EC45D008CC5AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E19472A8EC45D008CC5AF /* Constants.swift */; };
+		65412FE52AE6E50500BB3F64 /* ArtworksFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65412FE42AE6E50500BB3F64 /* ArtworksFormat.swift */; };
+		65412FE92AE6E5A500BB3F64 /* ArtworksFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65412FE82AE6E5A500BB3F64 /* ArtworksFormatTests.swift */; };
 		65733F462A9D18FF0077056F /* artistData.json in Resources */ = {isa = PBXBuildFile; fileRef = 65733F452A9D18FF0077056F /* artistData.json */; };
+		6594E85A2AA6539F007C48AB /* ArtworkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6594E8592AA6539F007C48AB /* ArtworkDetail.swift */; };
 		65A7B9CF2A85814800B7A0F6 /* ArtworksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A7B9CE2A85814800B7A0F6 /* ArtworksAPI.swift */; };
 		65CA77F32A90EA5F005FBB05 /* ArtworksAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */; };
 		65CA77F52A9104E2005FBB05 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA77F42A9104E2005FBB05 /* Errors.swift */; };
@@ -40,8 +43,11 @@
 		6506D4B62A8042600016E559 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		652E19472A8EC45D008CC5AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		653357462A92357300511892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		65412FE42AE6E50500BB3F64 /* ArtworksFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksFormat.swift; sourceTree = "<group>"; };
+		65412FE82AE6E5A500BB3F64 /* ArtworksFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksFormatTests.swift; sourceTree = "<group>"; };
 		654336452A9161AB006CF3BF /* Artworks.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Artworks.xctestplan; sourceTree = "<group>"; };
 		65733F452A9D18FF0077056F /* artistData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = artistData.json; sourceTree = "<group>"; };
+		6594E8592AA6539F007C48AB /* ArtworkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkDetail.swift; sourceTree = "<group>"; };
 		65A7B9CE2A85814800B7A0F6 /* ArtworksAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksAPI.swift; sourceTree = "<group>"; };
 		65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworksAPITests.swift; sourceTree = "<group>"; };
 		65CA77EA2A90EA48005FBB05 /* ArtworksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtworksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +99,7 @@
 		6506D4AE2A80425F0016E559 /* Artworks */ = {
 			isa = PBXGroup;
 			children = (
+				65412FE32AE6E4E000BB3F64 /* Utils */,
 				653357462A92357300511892 /* Info.plist */,
 				652E19472A8EC45D008CC5AF /* Constants.swift */,
 				65CA77F42A9104E2005FBB05 /* Errors.swift */,
@@ -115,11 +122,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		65412FE32AE6E4E000BB3F64 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				65412FE42AE6E50500BB3F64 /* ArtworksFormat.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		65BC68F32A9BD7C5006DC65D /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				65E433612A9A13F100500519 /* ArtworkList.swift */,
 				65E433632A9A149000500519 /* ArtworkCard.swift */,
+				6594E8592AA6539F007C48AB /* ArtworkDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +145,7 @@
 			children = (
 				654336452A9161AB006CF3BF /* Artworks.xctestplan */,
 				65CA77E42A90E76D005FBB05 /* ArtworksAPITests.swift */,
+				65412FE82AE6E5A500BB3F64 /* ArtworksFormatTests.swift */,
 			);
 			path = ArtworksTests;
 			sourceTree = "<group>";
@@ -264,7 +281,9 @@
 				65E433642A9A149000500519 /* ArtworkCard.swift in Sources */,
 				65F2E60A2A856E31002830C8 /* Artwork.swift in Sources */,
 				65F2E60C2A857A1B002830C8 /* Artist.swift in Sources */,
+				65412FE52AE6E50500BB3F64 /* ArtworksFormat.swift in Sources */,
 				65E433692A9A192400500519 /* ModelData.swift in Sources */,
+				6594E85A2AA6539F007C48AB /* ArtworkDetail.swift in Sources */,
 				652E19482A8EC45D008CC5AF /* Constants.swift in Sources */,
 				65CA77F52A9104E2005FBB05 /* Errors.swift in Sources */,
 			);
@@ -275,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65CA77F32A90EA5F005FBB05 /* ArtworksAPITests.swift in Sources */,
+				65412FE92AE6E5A500BB3F64 /* ArtworksFormatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +440,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,7 +471,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +494,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SYQJDA5W6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tombortniak.ArtworksTests;
@@ -497,7 +517,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SYQJDA5W6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tombortniak.ArtworksTests;
@@ -588,7 +608,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,7 +631,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SYQJDA5W6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tombortniak.ArtworksTests;
