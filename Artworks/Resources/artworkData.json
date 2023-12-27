@@ -13,7 +13,9 @@
     "year_completed": 1505,
     "description_link": "description_link",
     "height": 200.0,
-    "width": 322.0
+    "width": 322.0,
+    "latitude": 48.860702830805884,
+    "longitude": 2.337686913583755
   },
   {
     "id": 2,
@@ -29,6 +31,8 @@
     "year_completed": 1344,
     "description_link": "description_link",
     "height": 400.0,
-    "width": 560.0
+    "width": 560.0,
+    "latitude": 41.90314640162425,
+    "longitude": 12.454451311530702
   }
 ]

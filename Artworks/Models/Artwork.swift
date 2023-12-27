@@ -22,4 +22,6 @@ struct Artwork: Codable, Identifiable {
     var descriptionLink: String?
     var height: Double?
     var width: Double?
+    var latitude: Double
+    var longitude: Double
 }
