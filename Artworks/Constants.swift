@@ -12,4 +12,8 @@ struct Constants {
         static let artistsURL = URL(string: "http://srv21.mikr.us:30123/api/v1/artists")
         static let artworksURL = URL(string: "http://srv21.mikr.us:30123/api/v1/artworks")
     }
+
+    struct Format {
+        static let lengthUnit = UnitLength.centimeters
+    }
 }
