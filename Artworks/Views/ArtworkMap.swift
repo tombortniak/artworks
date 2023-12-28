@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct ArtworkMap: View {
-    @State var position = MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.0, longitude: 34.0), span: MKCoordinateSpan(latitudeDelta: 90, longitudeDelta: 180)))
+    @State var position = MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Constants.Map.earthCenterLatitude, longitude: Constants.Map.earthCenterLongitude), span: MKCoordinateSpan(latitudeDelta: Constants.Map.latitudeDelta, longitudeDelta: Constants.Map.longitudeDelta)))
     var body: some View {
         Map(position: $position) {
             ForEach(artworks) { artwork in

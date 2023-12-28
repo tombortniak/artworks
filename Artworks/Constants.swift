@@ -19,5 +19,9 @@ struct Constants {
 
     struct Map {
         static let markerIcon = "building.columns.circle.fill"
+        static let earthCenterLatitude = 39.0
+        static let earthCenterLongitude = 34.0
+        static let latitudeDelta = 90.0
+        static let longitudeDelta = 180.0
     }
 }
