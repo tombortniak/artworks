@@ -16,4 +16,8 @@ struct Constants {
     struct Format {
         static let lengthUnit = UnitLength.centimeters
     }
+
+    struct Map {
+        static let markerIcon = "building.columns.circle.fill"
+    }
 }
