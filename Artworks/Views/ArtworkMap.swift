@@ -15,7 +15,7 @@ struct ArtworkMap: View {
             ForEach(artworks) { artwork in
                 Annotation(artwork.title, coordinate: CLLocationCoordinate2D(latitude: artwork.latitude, longitude: artwork.longitude)) {
                     ZStack {
-                        Ellipse()
+                        Circle()
                             .fill(.background)
                         Image(systemName: Constants.Map.annotationIcon)
                             .padding(5)
