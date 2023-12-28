@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build and test
-        run: xcodebuild clean build test -project Artworks.xcodeproj -scheme Artworks -destination 'platform=iOS Simulator,name=iPhone 14,OS=17.0' -enableCodeCoverage YES -derivedDataPath Build/ CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        run: xcodebuild clean build test -project Artworks.xcodeproj -scheme Artworks -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' -enableCodeCoverage YES -derivedDataPath Build/ CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       - name: Convert test coverage to SonarQube format
         run: bash ./.github/scripts/xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ >Coverage.xml
       - name: Upload test coverage
