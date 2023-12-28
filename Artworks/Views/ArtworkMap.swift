@@ -13,7 +13,15 @@ struct ArtworkMap: View {
     var body: some View {
         Map(position: $position) {
             ForEach(artworks) { artwork in
-                Marker(artwork.title, systemImage: Constants.Map.markerIcon, coordinate: CLLocationCoordinate2D(latitude: artwork.latitude, longitude: artwork.longitude))
+                Annotation(artwork.title, coordinate: CLLocationCoordinate2D(latitude: artwork.latitude, longitude: artwork.longitude)) {
+                    ZStack {
+                        Ellipse()
+                            .fill(.background)
+                        Image(systemName: Constants.Map.annotationIcon)
+                            .padding(5)
+                    }
+                }
+                .annotationTitles(.hidden)
             }
         }
         .mapStyle(.hybrid(elevation: .realistic))
