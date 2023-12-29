@@ -24,4 +24,9 @@ struct Constants {
         static let latitudeDelta = 90.0
         static let longitudeDelta = 180.0
     }
+
+    struct Navigation {
+        static let exploreTabIcon = "magnifyingglass"
+        static let mapTabIcon = "globe.europe.africa.fill"
+    }
 }
