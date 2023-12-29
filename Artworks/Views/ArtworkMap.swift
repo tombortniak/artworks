@@ -28,6 +28,8 @@ struct ArtworkMap: View {
     }
 }
 
+#if !TESTING
 #Preview {
     ArtworkMap()
 }
+#endif
