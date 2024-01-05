@@ -26,7 +26,9 @@ struct LocationDetail: View {
     }
 }
 
+#if !TESTING
 #Preview {
     @State var location: Location? = Location(name: "Louvre", coords: Coords(latitude: artworks.first!.latitude, longitude: artworks.first!.longitude), artworks: artworks)
     return LocationDetail(selectedLocation: $location)
 }
+#endif
