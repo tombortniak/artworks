@@ -10,18 +10,24 @@ import SwiftUI
 struct LocationDetail: View {
     @Binding var selectedLocation: Location?
     var body: some View {
-        VStack {
-            Text(selectedLocation?.name ?? "")
-                .font(.title2)
-                .bold()
-            List(selectedLocation?.artworks ?? [], id: \.self) { artwork in
-                ArtworkCard(artwork: artwork)
+        NavigationStack {
+            VStack {
+                Text(selectedLocation?.name ?? "")
+                    .font(.title2)
+                    .bold()
+                List(selectedLocation?.artworks ?? [], id: \.self) { artwork in
+                    NavigationLink {
+                        ArtworkDetail(artwork: artwork)
+                    } label: {
+                        ArtworkCard(artwork: artwork)
+                    }
                     .listRowSeparator(.hidden)
+                }
+                .listStyle(PlainListStyle())
             }
-            .listStyle(PlainListStyle())
         }
         .padding([.bottom, .top], 25)
-        .presentationDetents([.medium])
+        .presentationDetents([.large])
         .presentationDragIndicator(.visible)
     }
 }

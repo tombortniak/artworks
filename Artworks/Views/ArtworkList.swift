@@ -13,8 +13,12 @@ struct ArtworkList: View {
     var body: some View {
         NavigationStack {
             List(filteredArtworks, id: \.self) { artwork in
-                ArtworkCard(artwork: artwork)
-                    .listRowSeparator(.hidden)
+                NavigationLink {
+                    ArtworkDetail(artwork: artwork)
+                } label: {
+                    ArtworkCard(artwork: artwork)
+                }
+                .listRowSeparator(.hidden)
             }
             .listStyle(PlainListStyle())
             .navigationTitle("Artworks")
