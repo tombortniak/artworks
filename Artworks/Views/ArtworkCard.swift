@@ -15,24 +15,26 @@ struct ArtworkCard: View {
             Image(artwork.image)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 120, height: 120, alignment: .top)
+                .frame(width: 100, height: 100, alignment: .top)
+                .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6.0, bottomLeadingRadius: 6.0, bottomTrailingRadius: 0.0, topTrailingRadius: 0.0))
                 .clipped()
             Spacer()
             VStack(alignment: .center, spacing: 5) {
                 Text(artwork.title)
-                    .font(.title3)
+                    .font(.headline)
                     .bold()
                     .multilineTextAlignment(.center)
                 Text(artists[0].name)
+                    .font(.caption)
             }
             Spacer()
         }
         .background(
-            Rectangle()
+            RoundedRectangle(cornerRadius: 6.0)
                 .fill(Color.white)
                 .shadow(
-                    color: Color.gray.opacity(0.5),
-                    radius: 5
+                    color: Color.gray.opacity(0.4),
+                    radius: 2.5
                 )
         )
     }
