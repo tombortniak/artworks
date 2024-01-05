@@ -8,19 +8,21 @@
 import SwiftUI
 import MapKit
 
-struct CoordsGroupingKey: Hashable {
-    let latitude: Double
-    let longitude: Double
+func getLocations(artworks: [Artwork]) -> [Location] {
+    let groupedArtworks = Dictionary(grouping: artworks, by: { Coords(latitude: $0.latitude, longitude: $0.longitude)})
+    let locations = groupedArtworks.keys.map { Location(name: groupedArtworks[$0]!.first!.location, coords: $0, artworks: groupedArtworks[$0]!) }
+    return locations
 }
 
 struct ArtworkMap: View {
     @State var isSheetPresented = false
     @State var position = MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Constants.Map.earthCenterLatitude, longitude: Constants.Map.earthCenterLongitude), span: MKCoordinateSpan(latitudeDelta: Constants.Map.latitudeDelta, longitudeDelta: Constants.Map.longitudeDelta)))
-    var groupedArtworks = Dictionary(grouping: artworks, by: { CoordsGroupingKey(latitude: $0.latitude, longitude: $0.longitude)})
+    @State var selectedLocation: Location?
+    var locations = getLocations(artworks: artworks)
     var body: some View {
         Map(position: $position) {
-            ForEach(Array(groupedArtworks.values), id: \.self) { artworks in
-                Annotation(artworks.first?.location ?? "", coordinate: CLLocationCoordinate2D(latitude: artworks.first!.latitude, longitude: artworks.first!.longitude)) {
+            ForEach(locations, id: \.self) { location in
+                Annotation(location.name, coordinate: CLLocationCoordinate2D(latitude: location.coords.latitude, longitude: location.coords.longitude)) {
                     ZStack {
                         Circle()
                             .fill(.background)
@@ -28,6 +30,7 @@ struct ArtworkMap: View {
                             .padding(5)
                     }
                     .onTapGesture {
+                        selectedLocation = location
                         isSheetPresented = true
                     }
                 }
@@ -35,20 +38,8 @@ struct ArtworkMap: View {
             }
         }
         .mapStyle(.hybrid(elevation: .realistic))
-        .sheet(isPresented: $isSheetPresented) {
-            VStack {
-                Text(artworks.first!.location)
-                    .font(.title2)
-                    .bold()
-                List(artworks, id: \.self) { artwork in
-                    ArtworkCard(artwork: artwork)
-                        .listRowSeparator(.hidden)
-                }
-                .listStyle(PlainListStyle())
-            }
-            .padding([.bottom, .top], 25)
-            .presentationDetents([.medium])
-            .presentationDragIndicator(.visible)
+        .sheet(isPresented: $isSheetPresented, onDismiss: { isSheetPresented = false }) {
+            LocationDetail(selectedLocation: $selectedLocation)
         }
     }
 }
