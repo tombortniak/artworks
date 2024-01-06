@@ -33,8 +33,8 @@ struct ArtworkCard: View {
             RoundedRectangle(cornerRadius: 6.0)
                 .fill(Color.white)
                 .shadow(
-                    color: Color.gray.opacity(0.4),
-                    radius: 2.5
+                    color: Color.gray.opacity(0.5),
+                    radius: 3
                 )
         )
     }
