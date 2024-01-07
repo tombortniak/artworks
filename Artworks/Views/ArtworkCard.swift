@@ -37,7 +37,7 @@ struct ArtworkCard: View {
                     .font(.caption)
                     .task {
                         do {
-                            artist = try await ArtworksAPI().getArtists(queryParameters: ["id": "\(artwork.artistId!)"]).first
+                            artist = try await ArtworksAPI().getArtist(id: artwork.artistId!)
                         } catch {}
                     }
             }
