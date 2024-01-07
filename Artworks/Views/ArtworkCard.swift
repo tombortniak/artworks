@@ -10,6 +10,7 @@ import SwiftUI
 struct ArtworkCard: View {
     var artwork: Artwork
     @State var artist: Artist? = nil
+    @State var didErrorOccur = false
 
     var body: some View {
         HStack {
@@ -40,6 +41,9 @@ struct ArtworkCard: View {
                             artist = try await ArtworksAPI().getArtist(id: artwork.artistId!)
                         } catch {}
                     }
+            }
+            .alert(isPresented: $didErrorOccur) {
+                Alert(title: Text("Error"), message: Text("Error occurred while fetching data"), dismissButton: .default(Text("OK")))
             }
             Spacer()
         }

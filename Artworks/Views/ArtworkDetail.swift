@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+enum CustomError: Error {
+    case invalidSelection
+}
 
 struct ArtworkDetail: View {
     var artwork: Artwork
     @State var artist: Artist? = nil
+    @State var didErrorOccur = false
 
     var body: some View {
         VStack {
@@ -37,13 +41,18 @@ struct ArtworkDetail: View {
                     Text(artwork.title)
                         .font(.largeTitle)
                         .bold()
-                    Text(dummyArtists[0].name)
+                    Text(artist?.name ?? "")
                         .font(.subheadline)
                         .task {
                             do {
                                 artist = try await ArtworksAPI().getArtist(id: artwork.artistId!)
-                            } catch {}
+                            } catch {
+                                didErrorOccur = true
+                            }
                         }
+                }
+                .alert(isPresented: $didErrorOccur) {
+                    Alert(title: Text("Error"), message: Text("Error occurred while fetching data"), dismissButton: .default(Text("OK")))
                 }
                 Spacer()
             }
@@ -51,7 +60,7 @@ struct ArtworkDetail: View {
             List {
                 Label(artwork.form.capitalized, systemImage: "theatermask.and.paintbrush")
                 Label("\(artwork.location), \(artwork.city)", systemImage: "building.columns")
-                Label(dummyArtists[0].period, systemImage: "hourglass")
+                Label(artist?.period ?? "", systemImage: "hourglass")
                 Label(getSpan(startYear: artwork.yearStarted, endYear: artwork.yearCompleted), systemImage: "calendar")
                 Label(getDimensions(height: artwork.height, width: artwork.width), systemImage: "pencil.and.ruler")
             }
