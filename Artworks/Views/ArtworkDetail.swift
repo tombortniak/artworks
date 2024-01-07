@@ -16,18 +16,26 @@ struct ArtworkDetail: View {
                 Color.white
                     .frame(maxHeight: 200)
                     .ignoresSafeArea()
-                Image(artwork.image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight: 200, alignment: .top)
-                    .clipped()
+                AsyncImage(url: URL(string: artwork.image)) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                    } else if phase.error != nil {
+                        Color.red
+                    } else {
+                        Color.gray
+                    }
+                }
+                .scaledToFit()
+                .frame(maxHeight: 200, alignment: .top)
+                .clipped()
             }
             HStack {
                 VStack(alignment: .leading) {
                     Text(artwork.title)
                         .font(.largeTitle)
                         .bold()
-                    Text(artists[0].name)
+                    Text(dummyArtists[0].name)
                         .font(.subheadline)
                 }
                 Spacer()
@@ -36,7 +44,7 @@ struct ArtworkDetail: View {
             List {
                 Label(artwork.form.capitalized, systemImage: "theatermask.and.paintbrush")
                 Label("\(artwork.location), \(artwork.city)", systemImage: "building.columns")
-                Label(artists[0].period, systemImage: "hourglass")
+                Label(dummyArtists[0].period, systemImage: "hourglass")
                 Label(getSpan(startYear: artwork.yearStarted, endYear: artwork.yearCompleted), systemImage: "calendar")
                 Label(getDimensions(height: artwork.height, width: artwork.width), systemImage: "pencil.and.ruler")
                 Label(artwork.descriptionLink ?? "", systemImage: "link")
@@ -48,9 +56,7 @@ struct ArtworkDetail: View {
 }
 
 #if !TESTING
-struct ArtworkDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtworkDetail(artwork: artworks[0])
-    }
+#Preview {
+    ArtworkDetail(artwork: dummyArtworks[0])
 }
 #endif

@@ -34,7 +34,7 @@ struct LocationDetail: View {
 
 #if !TESTING
 #Preview {
-    @State var location: Location? = Location(name: "Louvre", coords: Coords(latitude: artworks.first!.latitude, longitude: artworks.first!.longitude), artworks: artworks)
+    @State var location: Location? = Location(name: "Louvre", coords: Coords(latitude: dummyArtworks.first!.latitude, longitude: dummyArtworks.first!.longitude), artworks: dummyArtworks)
     return LocationDetail(selectedLocation: $location)
 }
 #endif

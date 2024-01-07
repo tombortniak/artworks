@@ -17,10 +17,7 @@ struct ArtworkCard: View {
                     image
                         .resizable()
                 } else if phase.error != nil {
-                    Image(systemName: "exclamationmark.circle")
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .font(.system(size: 22))
-                        .foregroundColor(.red)
+                    Color.red
                 } else {
                     Color.gray
                 }
@@ -35,7 +32,7 @@ struct ArtworkCard: View {
                     .font(.headline)
                     .bold()
                     .multilineTextAlignment(.center)
-                Text(artists[0].name)
+                Text(dummyArtists[0].name)
                     .font(.caption)
             }
             Spacer()
@@ -52,13 +49,7 @@ struct ArtworkCard: View {
 }
 
 #if !TESTING
-struct ArtworkRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ArtworkCard(artwork: artworks[0])
-            ArtworkCard(artwork: artworks[1])
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
-    }
+#Preview {
+    ArtworkCard(artwork: dummyArtworks[0])
 }
 #endif

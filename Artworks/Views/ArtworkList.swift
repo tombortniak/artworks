@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArtworkList: View {
+    @Binding var artworks: [Artwork]
     @State private var searchText = ""
 
     var body: some View {
@@ -40,9 +41,8 @@ struct ArtworkList: View {
 }
 
 #if !TESTING
-struct ArtworkList_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtworkList()
-    }
+#Preview {
+    @State var artworks = dummyArtworks
+    return ArtworkList(artworks: $artworks)
 }
 #endif
