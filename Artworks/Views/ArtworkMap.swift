@@ -15,10 +15,20 @@ func getLocations(artworks: [Artwork]) -> [Location] {
 }
 
 struct ArtworkMap: View {
-    @State var isSheetPresented = false
-    @State var position = MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Constants.Map.earthCenterLatitude, longitude: Constants.Map.earthCenterLongitude), span: MKCoordinateSpan(latitudeDelta: Constants.Map.latitudeDelta, longitudeDelta: Constants.Map.longitudeDelta)))
+    @Binding var artworks: [Artwork]
+    @State var isSheetPresented: Bool
+    @State var position: MapCameraPosition
     @State var selectedLocation: Location?
-    var locations = getLocations(artworks: artworks)
+    var locations: [Location] = []
+
+    init(artworks: Binding<[Artwork]>) {
+        self._artworks = artworks
+        self._isSheetPresented = State(initialValue: false)
+        self._position = State(initialValue: MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Constants.Map.earthCenterLatitude, longitude: Constants.Map.earthCenterLongitude), span: MKCoordinateSpan(latitudeDelta: Constants.Map.latitudeDelta, longitudeDelta: Constants.Map.longitudeDelta))))
+        self.locations = getLocations(artworks: self.artworks)
+
+    }
+
     var body: some View {
         Map(position: $position) {
             ForEach(locations, id: \.self) { location in
@@ -46,6 +56,7 @@ struct ArtworkMap: View {
 
 #if !TESTING
 #Preview {
-    ArtworkMap()
+    @State var artworks = dummyArtworks
+    return ArtworkMap(artworks: $artworks)
 }
 #endif

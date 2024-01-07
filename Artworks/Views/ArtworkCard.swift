@@ -9,23 +9,41 @@ import SwiftUI
 
 struct ArtworkCard: View {
     var artwork: Artwork
+    @State var artist: Artist? = nil
+    @State var didErrorOccur = false
 
     var body: some View {
         HStack {
-            Image(artwork.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 100, height: 100, alignment: .top)
-                .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6.0, bottomLeadingRadius: 6.0, bottomTrailingRadius: 0.0, topTrailingRadius: 0.0))
-                .clipped()
+            AsyncImage(url: URL(string: artwork.image)) { phase in
+                if let image = phase.image {
+                    image
+                        .resizable()
+                } else if phase.error != nil {
+                    Color.red
+                } else {
+                    Color.gray
+                }
+            }
+            .scaledToFill()
+            .frame(width: 100, height: 100, alignment: .top)
+            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6.0, bottomLeadingRadius: 6.0, bottomTrailingRadius: 0.0, topTrailingRadius: 0.0))
+            .clipped()
             Spacer()
             VStack(alignment: .center, spacing: 5) {
                 Text(artwork.title)
                     .font(.headline)
                     .bold()
                     .multilineTextAlignment(.center)
-                Text(artists[0].name)
+                Text(artist?.name ?? "")
                     .font(.caption)
+                    .task {
+                        do {
+                            artist = try await ArtworksAPI().getArtist(id: artwork.artistId!)
+                        } catch {}
+                    }
+            }
+            .alert(isPresented: $didErrorOccur) {
+                Alert(title: Text("Error"), message: Text("Error occurred while fetching data"), dismissButton: .default(Text("OK")))
             }
             Spacer()
         }
@@ -33,21 +51,15 @@ struct ArtworkCard: View {
             RoundedRectangle(cornerRadius: 6.0)
                 .fill(Color.white)
                 .shadow(
-                    color: Color.gray.opacity(0.4),
-                    radius: 2.5
+                    color: Color.gray.opacity(0.5),
+                    radius: 3
                 )
         )
     }
 }
 
 #if !TESTING
-struct ArtworkRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ArtworkCard(artwork: artworks[0])
-            ArtworkCard(artwork: artworks[1])
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
-    }
+#Preview {
+    ArtworkCard(artwork: dummyArtworks[0])
 }
 #endif

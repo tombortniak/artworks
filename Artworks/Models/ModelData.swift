@@ -7,8 +7,8 @@
 
 import Foundation
 
-var artworks: [Artwork] = load("artworkData.json")
-var artists: [Artist] = load("artistData.json")
+var dummyArtworks: [Artwork] = load("artworkData.json")
+var dummyArtists: [Artist] = load("artistData.json")
 
 func load<T: Decodable>(_ filename: String) -> [T] {
     let data: Data

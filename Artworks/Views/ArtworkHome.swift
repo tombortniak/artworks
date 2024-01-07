@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct ArtworkHome: View {
+    @State var artworks: [Artwork] = []
     var body: some View {
         TabView {
             Group {
-                ArtworkList()
+                ArtworkList(artworks: $artworks)
                     .tabItem {
                         Label("Explore", systemImage: Constants.Navigation.exploreTabIcon)
                     }
-                ArtworkMap()
+                ArtworkMap(artworks: $artworks)
                     .tabItem {
                         Label("Map", systemImage: Constants.Navigation.mapTabIcon)
                     }
             }
             .toolbarBackground(.visible, for: .tabBar)
             .toolbarBackground(.white, for: .tabBar)
+        }
+        .onAppear {
+            Task {
+                artworks = try await ArtworksAPI().getArtworks()
+            }
         }
     }
 }

@@ -7,28 +7,52 @@
 
 import SwiftUI
 
+enum CustomError: Error {
+    case invalidSelection
+}
 
 struct ArtworkDetail: View {
     var artwork: Artwork
+    @State var artist: Artist? = nil
+    @State var didErrorOccur = false
+
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
                 Color.white
                     .frame(maxHeight: 200)
                     .ignoresSafeArea()
-                Image(artwork.image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight: 200, alignment: .top)
-                    .clipped()
+                AsyncImage(url: URL(string: artwork.image)) { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                    } else if phase.error != nil {
+                        Color.red
+                    } else {
+                        Color.gray
+                    }
+                }
+                .scaledToFit()
+                .frame(maxHeight: 200, alignment: .top)
+                .clipped()
             }
             HStack {
                 VStack(alignment: .leading) {
                     Text(artwork.title)
                         .font(.largeTitle)
                         .bold()
-                    Text(artists[0].name)
+                    Text(artist?.name ?? "")
                         .font(.subheadline)
+                        .task {
+                            do {
+                                artist = try await ArtworksAPI().getArtist(id: artwork.artistId!)
+                            } catch {
+                                didErrorOccur = true
+                            }
+                        }
+                }
+                .alert(isPresented: $didErrorOccur) {
+                    Alert(title: Text("Error"), message: Text("Error occurred while fetching data"), dismissButton: .default(Text("OK")))
                 }
                 Spacer()
             }
@@ -36,10 +60,10 @@ struct ArtworkDetail: View {
             List {
                 Label(artwork.form.capitalized, systemImage: "theatermask.and.paintbrush")
                 Label("\(artwork.location), \(artwork.city)", systemImage: "building.columns")
-                Label(artists[0].period, systemImage: "hourglass")
+                Label(artist?.period ?? "", systemImage: "hourglass")
                 Label(getSpan(startYear: artwork.yearStarted, endYear: artwork.yearCompleted), systemImage: "calendar")
                 Label(getDimensions(height: artwork.height, width: artwork.width), systemImage: "pencil.and.ruler")
-                Label(artwork.descriptionLink ?? "", systemImage: "link")
+                Text("[Find out more](\(artwork.descriptionLink!))")
             }
             .listStyle(.plain)
             .scrollDisabled(true)
@@ -48,9 +72,7 @@ struct ArtworkDetail: View {
 }
 
 #if !TESTING
-struct ArtworkDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtworkDetail(artwork: artworks[0])
-    }
+#Preview {
+    ArtworkDetail(artwork: dummyArtworks[0])
 }
 #endif
