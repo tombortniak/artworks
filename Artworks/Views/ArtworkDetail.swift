@@ -54,10 +54,10 @@ struct ArtworkDetail: View {
                 Label(dummyArtists[0].period, systemImage: "hourglass")
                 Label(getSpan(startYear: artwork.yearStarted, endYear: artwork.yearCompleted), systemImage: "calendar")
                 Label(getDimensions(height: artwork.height, width: artwork.width), systemImage: "pencil.and.ruler")
-                Label(artwork.descriptionLink ?? "", systemImage: "link")
             }
             .listStyle(.plain)
             .scrollDisabled(true)
+            Text("[Find out more](\(artwork.descriptionLink!))")
         }
     }
 }
