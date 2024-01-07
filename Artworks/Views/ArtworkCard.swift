@@ -12,12 +12,23 @@ struct ArtworkCard: View {
 
     var body: some View {
         HStack {
-            Image(artwork.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 100, height: 100, alignment: .top)
-                .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6.0, bottomLeadingRadius: 6.0, bottomTrailingRadius: 0.0, topTrailingRadius: 0.0))
-                .clipped()
+            AsyncImage(url: URL(string: artwork.image)) { phase in
+                if let image = phase.image {
+                    image
+                        .resizable()
+                } else if phase.error != nil {
+                    Image(systemName: "exclamationmark.circle")
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .font(.system(size: 22))
+                        .foregroundColor(.red)
+                } else {
+                    Color.gray
+                }
+            }
+            .scaledToFill()
+            .frame(width: 100, height: 100, alignment: .top)
+            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 6.0, bottomLeadingRadius: 6.0, bottomTrailingRadius: 0.0, topTrailingRadius: 0.0))
+            .clipped()
             Spacer()
             VStack(alignment: .center, spacing: 5) {
                 Text(artwork.title)
