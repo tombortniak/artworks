@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArtworkCard: View {
     var artwork: Artwork
+    @State var artist: Artist? = nil
 
     var body: some View {
         HStack {
@@ -32,8 +33,13 @@ struct ArtworkCard: View {
                     .font(.headline)
                     .bold()
                     .multilineTextAlignment(.center)
-                Text(dummyArtists[0].name)
+                Text(artist?.name ?? "")
                     .font(.caption)
+                    .task {
+                        do {
+                            artist = try await ArtworksAPI().getArtists(queryParameters: ["id": "\(artwork.artistId!)"]).first
+                        } catch {}
+                    }
             }
             Spacer()
         }
