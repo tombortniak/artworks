@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ArtworkHome: View {
     @State var artworks: [Artwork] = []
+    @State var didErrorOccur = false
     var body: some View {
         TabView {
             Group {
@@ -26,8 +27,15 @@ struct ArtworkHome: View {
         }
         .onAppear {
             Task {
-                artworks = try await ArtworksAPI().getArtworks()
+                do {
+                    artworks = try await ArtworksAPI().getArtworks()
+                } catch {
+                    didErrorOccur = true
+                }
             }
+        }
+        .alert(isPresented: $didErrorOccur) {
+            Alert(title: Text("Error"), message: Text("Error occurred while fetching data"), dismissButton: .default(Text("OK")))
         }
     }
 }
