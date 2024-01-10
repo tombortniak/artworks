@@ -13,8 +13,6 @@ enum CustomError: Error {
 
 struct ArtworkDetail: View {
     var artwork: Artwork
-    @State var artist: Artist? = nil
-    @State var didErrorOccur = false
 
     var body: some View {
         VStack {
@@ -41,18 +39,8 @@ struct ArtworkDetail: View {
                     Text(artwork.title)
                         .font(.largeTitle)
                         .bold()
-                    Text(artist?.name ?? "")
+                    Text(artwork.artist.name)
                         .font(.subheadline)
-                        .task {
-                            do {
-                                artist = try await ArtworksAPI().getArtist(id: artwork.artistId!)
-                            } catch {
-                                didErrorOccur = true
-                            }
-                        }
-                }
-                .alert(isPresented: $didErrorOccur) {
-                    Alert(title: Text("Error"), message: Text("Error occurred while fetching data"), dismissButton: .default(Text("OK")))
                 }
                 Spacer()
             }
@@ -60,7 +48,7 @@ struct ArtworkDetail: View {
             List {
                 Label(artwork.form.capitalized, systemImage: "theatermask.and.paintbrush")
                 Label("\(artwork.location), \(artwork.city)", systemImage: "building.columns")
-                Label(artist?.period ?? "", systemImage: "hourglass")
+                Label(artwork.artist.period, systemImage: "hourglass")
                 Label(getSpan(startYear: artwork.yearStarted, endYear: artwork.yearCompleted), systemImage: "calendar")
                 Label(getDimensions(height: artwork.height, width: artwork.width), systemImage: "pencil.and.ruler")
                 Text("[Find out more](\(artwork.descriptionLink!))")
