@@ -3,7 +3,12 @@
     "id": 1,
     "title": "Mona Lisa",
     "image": "mona_lisa",
-    "artist_id": 1,
+    "artist": {
+        "id": 1,
+        "name": "Leonardo da Vinci",
+        "country": "Italy",
+        "period": "Renaissance"
+    },
     "location": "Louvre",
     "city": "Paris",
     "country": "France",
@@ -21,7 +26,12 @@
     "id": 2,
     "title": "The Last Judgement",
     "image": "the_last_judgement",
-    "artist_id": 2,
+    "artist": {
+        "id": 1,
+        "name": "Leonardo da Vinci",
+        "country": "Italy",
+        "period": "Renaissance"
+    },
     "location": "Sistine Chapel",
     "city": "Vatican City",
     "country": "Vatican City",

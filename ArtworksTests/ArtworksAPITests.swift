@@ -56,7 +56,7 @@ final class ArtworksAPITests: XCTestCase {
         XCTAssertNotNil(didFailWithError)
     }
 
-    func test_getArtwork_withCorrectId_shouldThrowError() async throws {
+    func test_getArtwork_withCorrectId_shouldReturnData() async throws {
         let expectation = XCTestExpectation(description: "Don't throw error when provided valid id")
         let id = 1
         _ = try await artworksAPI.getArtwork(id: id)
@@ -64,7 +64,7 @@ final class ArtworksAPITests: XCTestCase {
         await fulfillment(of: [expectation], timeout: 5.0)
     }
 
-    func test_getArtwork_withIncorrectId_shouldReturnData() async throws {
+    func test_getArtwork_withIncorrectId_shouldThrowError() async throws {
         let expectation = XCTestExpectation(description: "Throw error when provided invalid id")
         let id = -1
         do {
